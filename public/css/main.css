@@ -10,8 +10,17 @@ html, body {
     height: 100%;
 }
 
-#main {
-    background-color: midnightblue;
+.fosco {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+#morte {
+    background-color: white;
 
     height: 100vh;
     display: flex;
@@ -27,4 +36,103 @@ html, body {
     padding: .33em;
     border-radius: 7px;
     text-align: center;
+}
+
+#eremita {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    background-color: brown;
+    color: white;
+
+    width: 100%;
+    height: 100%;
+
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#eremita-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#eremita-form-input-class-name {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: .23em .34em;
+    font-size: .88em;
+    field-sizing: content;
+    max-width: 40%;
+}
+
+#eremita-form-input-class-name:focus {
+    outline: none;
+}
+
+.eremita-form-checkboxes {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .67em 0;
+}
+
+.checkbox-aligner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: .33em 1.33em;
+}
+
+.eremita-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.eremita-checkbox::before {
+    content: '';
+    display: inline-block;
+    width: 3.33em;
+    height: 1.87em;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.eremita-checkbox:checked::before {
+    background-color: aquamarine;
+    border-color: burlywood;
+}
+
+.eremita-btn-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 5px 10px;
+    margin: 1em;
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.action-btn:hover {
+    cursor: pointer;
+    background-color: aliceblue;
+    color: black;
 }

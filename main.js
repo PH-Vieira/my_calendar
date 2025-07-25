@@ -19,7 +19,16 @@ ipcMain.handle('getConteudo', (event, args = null) => {
     // console.log(`Im main, receiving ${args[0]} e ${args[1]}`)
     const response = Db.getContent(args)
     // console.log(`Im main, received ${JSON.stringify(response['data'])} from controller`)
-    return response['data']
+    if (response?.message == 'Success') {
+        return response?.data
+    } else {
+        return []
+    }
+})
+
+ipcMain.handle('addClassroom', (event, args = null) => {
+    const response = Db.addClassroom(args)
+    return response?.message
 })
 
 // create window function

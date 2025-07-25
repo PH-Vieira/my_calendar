@@ -13,16 +13,37 @@ import fs from 'fs'
 //     }
 // }
 
-export function getClass(diaDaSemana = null) {
+export function addClassroom(sala) {
     try {
-        const data = fs.readFileSync('db.json', 'utf8')
+        const data = JSON.parse(fs.readFileSync('db.json', 'utf8'))
+
+        if(!data['salas'].includes(sala)) {
+            data['salas'].push(sala)
+            fs.writeFileSync('db.json', JSON.stringify(data, null, 4))
+        } else {
+            throw new Error("Ja existe essa sala");
+        }
+
         return {
-            message: 'Success',
-            data: JSON.parse(data)['salasPorDiaDaSemana'][diaDaSemana]
+            message: 'Success'
         }
     } catch (error) {
         return {
-            message: 'Error'
+            message: error
+        }
+    }
+}
+
+export function getClass(diaDaSemana = null) {
+    try {
+        const data = JSON.parse(fs.readFileSync('db.json', 'utf8'))
+        return {
+            message: 'Success',
+            data: data['salasPorDiaDaSemana'][diaDaSemana]
+        }
+    } catch (error) {
+        return {
+            message: error
         }
     }
 }
@@ -30,14 +51,14 @@ export function getClass(diaDaSemana = null) {
 export function getContent(_class = null) {
     try {
         // console.log(`Im controller receiving ${_class[0]} e ${_class[1]}`)
-        const data = fs.readFileSync('db.json', 'utf8')
+        const data = JSON.parse(fs.readFileSync('db.json', 'utf8'))
         return {
             message: 'Success',
-            data: JSON.parse(data)['conteudo'][_class[1]][_class[0]]
+            data: data['conteudo'][_class[1]][_class[0]]
         }
     } catch (error) {
         return {
-            message: 'Error'
+            message: error
         }
     }
 }

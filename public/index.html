@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Calendário de aulas</title>
@@ -8,9 +9,10 @@
     <link rel="stylesheet" href="css/salas.css">
     <link rel="stylesheet" href="css/content.css">
 </head>
+
 <body>
 
-    <div id="main">
+    <div id="morte">
         <!-- calendario -->
         <div class="col">
             <div id="calendar"></div>
@@ -20,8 +22,11 @@
         <div id="salas" class="col">
             <h2 class="salas-titulo">Salas</h2>
             <div id="sala-container"></div>
+            <div id="adicionar-sala">
+                <button type="button" id="show-eremita">Adicionar Sala</button>
+            </div>
         </div>
-        
+
         <!-- conteudo -->
         <div id="content" class="col">
             <h2 class="content-container-titulo">Conteúdo</h2>
@@ -29,9 +34,51 @@
         </div>
     </div>
 
+    <div id="eremita">
+        <form id="eremita-form">
+            <input type="text" id="eremita-form-input-class-name"
+                placeholder="Nome da sala">
+            <div class="eremita-form-checkboxes">
+                <div class="checkbox-aligner">
+                    <label>Domingo</label>
+                    <input type="checkbox" name="classroom-weekday-domingo" class="eremita-checkbox">
+                </div>
+                <div class="checkbox-aligner">
+                    <label>Segunda</label>
+                    <input type="checkbox" name="classroom-weekday-segunda" class="eremita-checkbox">
+                </div>
+                <div class="checkbox-aligner">
+                    <label>Terca</label>
+                    <input type="checkbox" name="classroom-weekday-terca" class="eremita-checkbox">
+                </div>
+                <div class="checkbox-aligner">
+                    <label>Quarta</label>
+                    <input type="checkbox" name="classroom-weekday-quarta" class="eremita-checkbox">
+                </div>
+                <div class="checkbox-aligner">
+                    <label>Quinta</label>
+                    <input type="checkbox" name="classroom-weekday-quinta" class="eremita-checkbox">
+                </div>
+                <div class="checkbox-aligner">
+                    <label>Sexta</label>
+                    <input type="checkbox" name="classroom-weekday-sexta" class="eremita-checkbox">
+                </div>
+                <div class="checkbox-aligner">
+                    <label>Sabado</label>
+                    <input type="checkbox" name="classroom-weekday-sabado" class="eremita-checkbox">
+                </div>
+            </div>
+        </form>
+        <div class="eremita-btn-container">
+            <button class="fosco action-btn" id="eremita-cancel-btn">Cancelar</button>
+            <button class="fosco action-btn" id="eremita-confirm-btn">Confirmar</button>
+        </div>
+    </div>
+
     <!-- Scripts -->
-     <script src="./vendor/index.global.min.js"></script>
-     <script type="module" src="./calendarConfig.js"></script>
+    <script src="./vendor/index.global.min.js"></script>
     <script src="calendarConfig.js"></script>
+    <script src="eremita.js"></script>
 </body>
+
 </html>

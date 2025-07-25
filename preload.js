@@ -5,13 +5,15 @@ let diasDaSemana = ['segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado', '
 contextBridge.exposeInMainWorld('calendarAPI', {
     selectClassFromDateInCalendar: async (event) => {
         let diaDaSemana = diasDaSemana[new Date(event).getDay()]
-        const res = await ipcRenderer.invoke('getClass', diaDaSemana)
-        return res
+        return await ipcRenderer.invoke('getClass', diaDaSemana)
     },
     selectContentFromClass: async (event, data) => {
         // console.log(`Im preload, receiving ${event} e ${data}`)
-        const res = await ipcRenderer.invoke('getConteudo', [event, data])
         // console.log(`Im preload, received ${res}`)
-        return res
-    }
+        return await ipcRenderer.invoke('getConteudo', [event, data])
+    },
+
+    AdicionarSalaDeAula: async (event) => {
+        return await ipcRenderer.invoke('addClassroom', event)
+    },
 })
