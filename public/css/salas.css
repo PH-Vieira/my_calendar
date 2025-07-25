@@ -1,0 +1,25 @@
+.salas-titulo {
+    padding: 0;
+    margin: 0;
+}
+
+.sala-container {
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.sala-btn {
+    width: 100%;
+    padding: .33em 0;
+    margin: 1em 0;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.sala-btn:hover {
+    cursor: pointer;
+}

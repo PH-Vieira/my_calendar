@@ -1,0 +1,22 @@
+{
+  "name": "lessons_calendar",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --exec electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^36.7.0",
+    "fullcalendar": "^6.1.18",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.18",
+    "@fullcalendar/multimonth": "^6.1.18"
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendário de aulas</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/salas.css">
+    <link rel="stylesheet" href="css/content.css">
+</head>
+<body>
+
+    <div id="main">
+        <!-- calendario -->
+        <div class="col">
+            <div id="calendar"></div>
+        </div>
+
+        <!-- salas -->
+        <div id="salas" class="col">
+            <h2 class="salas-titulo">Salas</h2>
+            <div id="sala-container"></div>
+        </div>
+        
+        <!-- conteudo -->
+        <div id="content" class="col">
+            <h2 class="content-container-titulo">Conteúdo</h2>
+            <div id="content-container"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+     <script src="./vendor/index.global.min.js"></script>
+     <script type="module" src="./calendarConfig.js"></script>
+    <script src="calendarConfig.js"></script>
+</body>
+</html>

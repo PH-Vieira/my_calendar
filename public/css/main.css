@@ -1,0 +1,30 @@
+* {
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+#main {
+    background-color: midnightblue;
+
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.col {
+    background-color: orange;
+
+    width: 29%;
+    margin: 1em 0 1em 0;
+    padding: .33em;
+    border-radius: 7px;
+    text-align: center;
+}
