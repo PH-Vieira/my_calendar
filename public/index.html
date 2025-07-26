@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/calendar.css">
     <link rel="stylesheet" href="css/salas.css">
-    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/conteudo.css">
 </head>
 
 <body>
@@ -21,16 +21,35 @@
         <!-- salas -->
         <div id="salas" class="col">
             <h2 class="salas-titulo">Salas</h2>
-            <div id="sala-container"></div>
+            <div id="sala-container" class="container"></div>
             <div id="adicionar-sala">
                 <button type="button" id="show-eremita">Adicionar Sala</button>
             </div>
         </div>
 
         <!-- conteudo -->
-        <div id="content" class="col">
-            <h2 class="content-container-titulo">Conteúdo</h2>
-            <div id="content-container"></div>
+        <div id="conteudo" class="col">
+            <h2 class="conteudo-titulo">Conteúdo</h2>
+            <div id="conteudo-container" class="container"></div>
+            <div id="adicionar-conteudo">
+                <button type="button" id="show-mago">Adicionar Conteudo</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mago">
+        Div pra adicionar conteudo
+        <div id="mago-container" class="container">
+            COntainer
+            <form id="mago-form" class="container">
+                magus form
+                <input type="text" id="mago-form-titulo" placeholder="Título">
+                <textarea id="mago-form-conteudo" placeholder="Conteúdo"></textarea>
+            </form>
+            <div id="mago-container-btns">
+                <button type="button" id="mago-container-btns-cancel">Cancelar</button>
+                <button type="button" id="mago-container-btns-confirm">Confirmar</button>
+            </div>
         </div>
     </div>
 
@@ -41,31 +60,31 @@
             <div class="eremita-form-checkboxes">
                 <div class="checkbox-aligner">
                     <label>Domingo</label>
-                    <input type="checkbox" name="classroom-weekday-domingo" class="eremita-checkbox">
+                    <input type="checkbox" name="classroom-weekday-domingo" class="eremita-checkbox" reason="domingo">
                 </div>
                 <div class="checkbox-aligner">
                     <label>Segunda</label>
-                    <input type="checkbox" name="classroom-weekday-segunda" class="eremita-checkbox">
+                    <input type="checkbox" name="classroom-weekday-segunda" class="eremita-checkbox" reason="segunda">
                 </div>
                 <div class="checkbox-aligner">
                     <label>Terca</label>
-                    <input type="checkbox" name="classroom-weekday-terca" class="eremita-checkbox">
+                    <input type="checkbox" name="classroom-weekday-terca" class="eremita-checkbox" reason="terca">
                 </div>
                 <div class="checkbox-aligner">
                     <label>Quarta</label>
-                    <input type="checkbox" name="classroom-weekday-quarta" class="eremita-checkbox">
+                    <input type="checkbox" name="classroom-weekday-quarta" class="eremita-checkbox" reason="quarta">
                 </div>
                 <div class="checkbox-aligner">
                     <label>Quinta</label>
-                    <input type="checkbox" name="classroom-weekday-quinta" class="eremita-checkbox">
+                    <input type="checkbox" name="classroom-weekday-quinta" class="eremita-checkbox" reason="quinta">
                 </div>
                 <div class="checkbox-aligner">
                     <label>Sexta</label>
-                    <input type="checkbox" name="classroom-weekday-sexta" class="eremita-checkbox">
+                    <input type="checkbox" name="classroom-weekday-sexta" class="eremita-checkbox" reason="sexta">
                 </div>
                 <div class="checkbox-aligner">
                     <label>Sabado</label>
-                    <input type="checkbox" name="classroom-weekday-sabado" class="eremita-checkbox">
+                    <input type="checkbox" name="classroom-weekday-sabado" class="eremita-checkbox" reason="sabado">
                 </div>
             </div>
         </form>
@@ -79,6 +98,7 @@
     <script src="./vendor/index.global.min.js"></script>
     <script src="calendarConfig.js"></script>
     <script src="eremita.js"></script>
+    <script src="mago.js"></script>
 </body>
 
 </html>

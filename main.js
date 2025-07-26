@@ -31,6 +31,8 @@ ipcMain.handle('addClassroom', (event, args = null) => {
     return response?.message
 })
 
+ipcMain.handle('addContent', (event, args = null) => { return Db.addContent(args) })
+
 // create window function
 function createWindow() {
     mainWindow = new BrowserWindow({

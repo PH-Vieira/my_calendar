@@ -1,5 +1,7 @@
 let lastClickedDate
 let selectedDate
+let salaAtiva
+const salaContainer = document.getElementById('sala-container')
 
 document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar')
@@ -25,17 +27,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     console.log(selectedDate)
 
-                    const salaContainer = document.getElementById('sala-container')
                     salaContainer.innerHTML = ''
 
-                    const contentContainer = document.getElementById('content-container')
+                    const contentContainer = document.getElementById('conteudo-container')
                     contentContainer.innerHTML = ''
 
                     let salas
 
                     window.calendarAPI.selectClassFromDateInCalendar(selectedDate).then(classRes => {
                         salas = classRes
-                        if (salas.length > 1) {
+                        if (salas?.length > 1) {
                             salas.forEach(sala => {
                                 const btn = document.createElement('button')
 
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 btn.classList.add('sala-btn')
 
                                 btn.addEventListener('click', (event) => {
+
                                     contentContainer.innerHTML = ''
 
                                     window.calendarAPI.selectContentFromClass(event.target.innerText, selectedDate).then(contentRes => {
@@ -69,9 +71,20 @@ document.addEventListener('DOMContentLoaded', function () {
                                         }
                                     })
                                 })
-
                                 salaContainer.appendChild(btn)
                             })
+                            let salaChildren = Array.from(salaContainer.childNodes)
+                            if (salaChildren.length > 1) {
+                                salaChildren.forEach(el => {
+                                    el.addEventListener('click', event => {
+                                        salaChildren.forEach(_el => {
+                                            _el.classList.remove('btn-ativo')
+                                        })
+                                        el.classList.add('btn-ativo')
+                                        salaAtiva = el.innerText
+                                    })
+                                })
+                            }
                         }
                     })
                 },

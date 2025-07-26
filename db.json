@@ -13,7 +13,8 @@
         "frances1",
         "frances2",
         "2A",
-        "3A"
+        "3A",
+        "4A"
     ],
     "salasPorDiaDaSemana": {
         "segunda": [
@@ -57,11 +58,30 @@
                 {
                     "titulo": "Aula sobre bl blu blubl",
                     "conteudo": "awpdvakwpdkapwkdpkawdvlapwvldp"
+                },
+                {
+                    "titulo": "123123",
+                    "conteudo": "qweqwe"
                 }
             ]
         },
         "2025-07-23": {},
         "2025-07-24": {},
-        "2025-07-25": {}
+        "2025-07-25": {
+            "1A": [
+                {
+                    "titulo": "a",
+                    "conteudo": "1"
+                }
+            ]
+        },
+        "2025-09-25": {
+            "frances1": [
+                {
+                    "titulo": "a",
+                    "conteudo": "1"
+                }
+            ]
+        }
     }
 }
