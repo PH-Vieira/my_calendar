@@ -1,8 +1,3 @@
-let lastClickedDate
-let selectedDate
-let salaAtiva
-const salaContainer = document.getElementById('sala-container')
-
 document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar')
 
@@ -27,10 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     salaContainer.innerHTML = ''
 
-                    const contentContainer = document.getElementById('conteudo-container')
                     contentContainer.innerHTML = ''
-
-                    let salas
 
                     window.calendarAPI.selectClassFromDateInCalendar(selectedDate).then(classRes => {
                         salas = classRes?.data || []
