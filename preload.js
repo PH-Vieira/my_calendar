@@ -8,8 +8,6 @@ contextBridge.exposeInMainWorld('calendarAPI', {
         return await ipcRenderer.invoke('getClass', diaDaSemana)
     },
     selectContentFromClass: async (event, data) => {
-        // console.log(`Im preload, receiving ${event} e ${data}`)
-        // console.log(`Im preload, received ${res}`)
         return await ipcRenderer.invoke('getConteudo', [event, data])
     },
 

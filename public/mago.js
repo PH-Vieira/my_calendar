@@ -17,10 +17,8 @@ MagoCancelBtn.addEventListener('click', event => {
 const MagoConfirmBtn = document.getElementById('mago-container-btns-confirm')
 MagoConfirmBtn.addEventListener('click', event => {
     event.preventDefault()
-    // console.log(selectedDate, salaAtiva)
     if(magoTitulo.value != '' || magoConteudo.value != '') {
         window.calendarAPI.AdicionarConteudo([selectedDate, salaAtiva, magoTitulo.value, magoConteudo.value]).then(res => {
-            console.log(res)
             // mago.style.display = 'none'
         })
     } else {

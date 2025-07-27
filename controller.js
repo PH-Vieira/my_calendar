@@ -13,23 +13,26 @@ import fs from 'fs'
 //     }
 // }
 
-export function addClassroom(sala) {
+export function addClassroom(args) {
     try {
         const data = JSON.parse(fs.readFileSync('db.json', 'utf8'))
 
-        if (!data['salas'].includes(sala)) {
-            data['salas'].push(sala)
-            fs.writeFileSync('db.json', JSON.stringify(data, null, 4))
-        } else {
-            throw new Error("Ja existe essa sala");
-        }
+        if (!data['salas'].includes(args[0])) { data['salas'].push(args[0]) }
+
+        Object.keys(args[1]).forEach(key => {
+            if (args[1][key] == true && !data['salasPorDiaDaSemana'][key].includes(args[0])) {
+                data['salasPorDiaDaSemana'][key].push(args[0])
+            }
+        })
+
+        fs.writeFileSync('db.json', JSON.stringify(data, null, 4))
 
         return {
             message: 'Success'
         }
     } catch (error) {
         return {
-            message: error
+            message: `Erro: ${error}`
         }
     }
 }
@@ -73,7 +76,7 @@ export function addContent(args) {
         }
     } catch (error) {
         return {
-            message: error
+            message: `Erro: ${error}`
         }
     }
 }
@@ -81,20 +84,20 @@ export function addContent(args) {
 export function getClass(diaDaSemana = null) {
     try {
         const data = JSON.parse(fs.readFileSync('db.json', 'utf8'))
+        
         return {
             message: 'Success',
             data: data['salasPorDiaDaSemana'][diaDaSemana]
         }
     } catch (error) {
         return {
-            message: error
+            message: `Erro: ${error}`
         }
     }
 }
 
 export function getContent(_class = null) {
     try {
-        // console.log(`Im controller receiving ${_class[0]} e ${_class[1]}`)
         const data = JSON.parse(fs.readFileSync('db.json', 'utf8'))
         return {
             message: 'Success',
@@ -102,7 +105,7 @@ export function getContent(_class = null) {
         }
     } catch (error) {
         return {
-            message: error
+            message: `Erro: ${error}`
         }
     }
 }

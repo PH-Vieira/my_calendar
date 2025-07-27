@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     selectedDate = info.dateStr
 
-                    console.log(selectedDate)
-
                     salaContainer.innerHTML = ''
 
                     const contentContainer = document.getElementById('conteudo-container')
@@ -35,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     let salas
 
                     window.calendarAPI.selectClassFromDateInCalendar(selectedDate).then(classRes => {
-                        salas = classRes
-                        if (salas?.length > 1) {
+                        salas = classRes?.data || []
+                        if (salas?.length >= 1) {
                             salas.forEach(sala => {
                                 const btn = document.createElement('button')
 
@@ -44,11 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
                                 btn.classList.add('sala-btn')
 
                                 btn.addEventListener('click', (event) => {
+                                    document.getElementById('show-mago').style.display = 'inline-block'
 
                                     contentContainer.innerHTML = ''
 
                                     window.calendarAPI.selectContentFromClass(event.target.innerText, selectedDate).then(contentRes => {
-
                                         let conteudos = contentRes
 
                                         if (Array.isArray(conteudos)) {

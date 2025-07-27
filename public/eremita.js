@@ -15,7 +15,8 @@ eremitaCancelBtn.addEventListener('click', event => {
         "terca": false,
         "quarta": false,
         "quinta": false,
-        "sexta": false
+        "sexta": false,
+        "sabado": false
     }
     checkReference.forEach(item => { item.checked = false })
     inputManContent ? inputManContent = '' : ''
@@ -25,23 +26,26 @@ eremitaCancelBtn.addEventListener('click', event => {
 const eremitaConfirmBtn = document.getElementById('eremita-confirm-btn')
 eremitaConfirmBtn.addEventListener('click', event => {
     if (inputManContent != '') {
-        window.calendarAPI.AdicionarSalaDeAula(inputManContent).then(res => {
-            eremita.style.display = 'none'
-            diasSelecionados = {
-                "domingo": false,
-                "segunda": false,
-                "terca": false,
-                "quarta": false,
-                "quinta": false,
-                "sexta": false
-            }
-            checkReference.forEach(item => { item.checked = false })
-            inputManContent ? inputManContent = '' : ''
-            inputMan.value = ''
-        })
-    } else {
-        alert('Para adicionar uma sala, adicione um nome')
-    }
+        if (Object.values(diasSelecionados).includes(true)) {
+            window.calendarAPI.AdicionarSalaDeAula([inputManContent, diasSelecionados]).then(res => {
+                eremita.style.display = 'none'
+                diasSelecionados = {
+                    "domingo": false,
+                    "segunda": false,
+                    "terca": false,
+                    "quarta": false,
+                    "quinta": false,
+                    "sexta": false,
+                    "sabado": false
+                }
+                checkReference.forEach(item => { item.checked = false })
+                inputManContent ? inputManContent = '' : ''
+                inputMan.value = ''
+            })
+        } else {
+            console.log('faltou o dia')
+        }
+    } else { console.log('faltou o nome') }
 })
 
 const eremitaForm = document.getElementById('eremita-form')
@@ -61,7 +65,8 @@ let diasSelecionados = {
     "terca": false,
     "quarta": false,
     "quinta": false,
-    "sexta": false
+    "sexta": false,
+    "sabado": false
 }
 
 let checkReference = []
@@ -72,6 +77,5 @@ for (i = 0; i < checkBoxes.length; i++) {
     let reason = checkBoxes[i].getAttribute('reason')
     checkBoxes[i].addEventListener('click', event => {
         diasSelecionados[reason] = !diasSelecionados[reason]
-        console.log(diasSelecionados)
     })
 }
