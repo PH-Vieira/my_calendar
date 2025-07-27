@@ -1,32 +1,94 @@
 {
     "salas": [
         "1A",
-        "teste",
-        "teste2",
-        "teste3",
-        "teste4",
-        "teste5"
+        "1B",
+        "Francês",
+        "Alienigena do caralho"
     ],
     "salasPorDiaDaSemana": {
         "segunda": [
-            "1A"
+            "1A",
+            "Alienigena do caralho"
         ],
-        "terca": [],
+        "terca": [
+            "1B",
+            "Alienigena do caralho"
+        ],
         "quarta": [
-            "1A"
+            "1A",
+            "Alienigena do caralho"
         ],
-        "quinta": [],
+        "quinta": [
+            "1B",
+            "Francês",
+            "Alienigena do caralho"
+        ],
         "sexta": [
-            "1A"
+            "1A",
+            "1B",
+            "Alienigena do caralho"
         ],
-        "sabado": [],
+        "sabado": [
+            "Alienigena do caralho"
+        ],
         "domingo": [
-            "teste",
-            "teste2",
-            "teste3",
-            "teste4",
-            "teste5"
+            "Alienigena do caralho"
         ]
     },
-    "conteudo": {}
+    "conteudo": {
+        "2025-07-31": {
+            "Francês": [
+                {
+                    "titulo": "Segunda aula",
+                    "conteudo": "a"
+                }
+            ]
+        },
+        "2025-07-24": {
+            "Francês": [
+                {
+                    "titulo": "peido",
+                    "conteudo": "bosta\n"
+                }
+            ],
+            "1B": [
+                {
+                    "titulo": "AAAAAAAAAAA",
+                    "conteudo": "sssss"
+                }
+            ]
+        },
+        "2025-09-18": {
+            "Francês": [
+                {
+                    "titulo": "aaa",
+                    "conteudo": "222"
+                }
+            ]
+        },
+        "2025-09-11": {
+            "Alienigena do caralho": [
+                {
+                    "titulo": "AAAAAAAAAAA",
+                    "conteudo": "SSSSSSSSSSSSSSSSS"
+                }
+            ]
+        },
+        "2025-09-25": {
+            "Alienigena do caralho": [
+                {
+                    "titulo": "aaa",
+                    "conteudo": "sss"
+                }
+            ]
+        },
+        "2025-09-24": {
+            "1A": [
+                {
+                    "titulo": "22222222",
+                    "conteudo": "dddddddddddd"
+                }
+            ]
+        }
+    }
 }

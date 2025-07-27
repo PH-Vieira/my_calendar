@@ -14,10 +14,11 @@ MagoConfirmBtn.addEventListener('click', event => {
     event.preventDefault()
     if(magoTitulo.value != '' || magoConteudo.value != '') {
         window.calendarAPI.AdicionarConteudo([selectedDate, salaAtiva, magoTitulo.value, magoConteudo.value]).then(res => {
-            // mago.style.display = 'none'
+            loadContent(salaAtiva)
+            mago.style.display = 'none'
         })
     } else {
-        alert('Insira um título e um conteúdo')
+        console.log('faltou coisa ai')
     }
 })
 MagoConfirmBtn.addEventListener('submit', event => { event.preventDefault() })

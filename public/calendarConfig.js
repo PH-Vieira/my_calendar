@@ -38,33 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                     contentContainer.innerHTML = ''
 
-                                    window.calendarAPI.selectContentFromClass(event.target.innerText, selectedDate).then(contentRes => {
-                                        let conteudos = contentRes
-
-                                        if (Array.isArray(conteudos)) {
-                                            conteudos.forEach(conteudo => {
-                                                const novaDiv = document.createElement('div')
-                                                const titulo = document.createElement('h3')
-                                                titulo.innerText = conteudo['titulo']
-                                                const cont = document.createElement('p')
-                                                cont.innerText = conteudo['conteudo']
-
-                                                novaDiv.appendChild(titulo)
-                                                novaDiv.appendChild(cont)
-
-                                                contentContainer.appendChild(novaDiv)
-                                            })
-                                        } else {
-                                            const novaDiv = document.createElement('div')
-                                            novaDiv.innerText = 'Sem conteúdo'
-                                            contentContainer.appendChild(novaDiv)
-                                        }
-                                    })
+                                    loadContent(salaAtiva)
                                 })
                                 salaContainer.appendChild(btn)
                             })
                             let salaChildren = Array.from(salaContainer.childNodes)
-                            if (salaChildren.length > 1) {
+                            if (salaChildren.length >= 1) {
                                 salaChildren.forEach(el => {
                                     el.addEventListener('click', event => {
                                         salaChildren.forEach(_el => {

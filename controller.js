@@ -41,7 +41,11 @@ export function addContent(args) {
     try {
         const data = JSON.parse(fs.readFileSync('db.json', 'utf8'))
 
-        if (!Object.values(data['conteudo']).includes(args[0])) {
+        console.log(`\n${JSON.stringify(Object.values(data['conteudo']))}\n`)
+        console.log(`\n${args}\n`)
+
+        if (!Object.keys(data['conteudo']).includes(args[0])) {
+            console.log('entrou no if')
             data['conteudo'][args[0]] = {}
             data['conteudo'][args[0]][args[1]] = []
             data['conteudo'][args[0]][args[1]].push({
@@ -50,6 +54,7 @@ export function addContent(args) {
             })
             fs.writeFileSync('db.json', JSON.stringify(data, null, 4))
         } else if (!Object.values(data['conteudo'][args[0]]).includes(args[1])) {
+            console.log('entrou no else if')
             data['conteudo'][args[0]][args[1]] = []
             data['conteudo'][args[0]][args[1]].push({
                 "titulo": args[2],
@@ -57,6 +62,7 @@ export function addContent(args) {
             })
             fs.writeFileSync('db.json', JSON.stringify(data, null, 4))
         } else {
+            console.log('entrou no else')
             data['conteudo'][args[0]][args[1]].forEach(el => {
                 if (el['titulo'] == args[2]) {
                     return { message: 'Já existe conteúdo com esse título' }

@@ -40,7 +40,7 @@ eremitaConfirmBtn.addEventListener('click', event => {
                                     contentContainer.innerHTML = ''
 
                                     window.calendarAPI.selectContentFromClass(event.target.innerText, selectedDate).then(contentRes => {
-                                        let conteudos = contentRes
+                                        let conteudos = contentRes['data']
 
                                         if (Array.isArray(conteudos)) {
                                             conteudos.forEach(conteudo => {
@@ -65,7 +65,7 @@ eremitaConfirmBtn.addEventListener('click', event => {
                                 salaContainer.appendChild(btn)
                             })
                             let salaChildren = Array.from(salaContainer.childNodes)
-                            if (salaChildren.length > 1) {
+                            if (salaChildren.length >= 1) {
                                 salaChildren.forEach(el => {
                                     el.addEventListener('click', event => {
                                         salaChildren.forEach(_el => {
