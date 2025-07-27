@@ -28,6 +28,66 @@ eremitaConfirmBtn.addEventListener('click', event => {
     if (inputManContent != '') {
         if (Object.values(diasSelecionados).includes(true)) {
             window.calendarAPI.AdicionarSalaDeAula([inputManContent, diasSelecionados]).then(res => {
+                if (selectedDate) {
+                    const salaContainer = document.getElementById('sala-container')
+                    salaContainer.innerHTML = ''
+                    const contentContainer = document.getElementById('conteudo-container')
+                    contentContainer.innerHTML = ''
+                    let salas
+                    window.calendarAPI.selectClassFromDateInCalendar(selectedDate).then(classRes => {
+                        salas = classRes?.data || []
+                        if (salas?.length >= 1) {
+                            salas.forEach(sala => {
+                                const btn = document.createElement('button')
+
+                                btn.textContent = sala
+                                btn.classList.add('sala-btn')
+
+                                btn.addEventListener('click', (event) => {
+                                    document.getElementById('show-mago').style.display = 'inline-block'
+
+                                    contentContainer.innerHTML = ''
+
+                                    window.calendarAPI.selectContentFromClass(event.target.innerText, selectedDate).then(contentRes => {
+                                        let conteudos = contentRes
+
+                                        if (Array.isArray(conteudos)) {
+                                            conteudos.forEach(conteudo => {
+                                                const novaDiv = document.createElement('div')
+                                                const titulo = document.createElement('h3')
+                                                titulo.innerText = conteudo['titulo']
+                                                const cont = document.createElement('p')
+                                                cont.innerText = conteudo['conteudo']
+
+                                                novaDiv.appendChild(titulo)
+                                                novaDiv.appendChild(cont)
+
+                                                contentContainer.appendChild(novaDiv)
+                                            })
+                                        } else {
+                                            const novaDiv = document.createElement('div')
+                                            novaDiv.innerText = 'Sem conteúdo'
+                                            contentContainer.appendChild(novaDiv)
+                                        }
+                                    })
+                                })
+                                salaContainer.appendChild(btn)
+                            })
+                            let salaChildren = Array.from(salaContainer.childNodes)
+                            if (salaChildren.length > 1) {
+                                salaChildren.forEach(el => {
+                                    el.addEventListener('click', event => {
+                                        salaChildren.forEach(_el => {
+                                            _el.classList.remove('btn-ativo')
+                                        })
+                                        el.classList.add('btn-ativo')
+                                        salaAtiva = el.innerText
+                                    })
+                                })
+                            }
+                        }
+                    })
+                }
                 eremita.style.display = 'none'
                 diasSelecionados = {
                     "domingo": false,

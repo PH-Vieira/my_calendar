@@ -18,6 +18,7 @@ ipcMain.handle('addContent', (event, args = null) => { return Db.addContent(args
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1500, height: 900,
+        minWidth: 950, minHeight: 500,
         backgroundColor: '#fff',
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
