@@ -1,94 +1,13 @@
 {
-    "salas": [
-        "1A",
-        "1B",
-        "Francês",
-        "Alienigena do caralho"
-    ],
+    "salas": [],
     "salasPorDiaDaSemana": {
-        "segunda": [
-            "1A",
-            "Alienigena do caralho"
-        ],
-        "terca": [
-            "1B",
-            "Alienigena do caralho"
-        ],
-        "quarta": [
-            "1A",
-            "Alienigena do caralho"
-        ],
-        "quinta": [
-            "1B",
-            "Francês",
-            "Alienigena do caralho"
-        ],
-        "sexta": [
-            "1A",
-            "1B",
-            "Alienigena do caralho"
-        ],
-        "sabado": [
-            "Alienigena do caralho"
-        ],
-        "domingo": [
-            "Alienigena do caralho"
-        ]
+        "segunda": [],
+        "terca": [],
+        "quarta": [],
+        "quinta": [],
+        "sexta": [],
+        "sabado": [],
+        "domingo": []
     },
-    "conteudo": {
-        "2025-07-31": {
-            "Francês": [
-                {
-                    "titulo": "Segunda aula",
-                    "conteudo": "a"
-                }
-            ]
-        },
-        "2025-07-24": {
-            "Francês": [
-                {
-                    "titulo": "peido",
-                    "conteudo": "bosta\n"
-                }
-            ],
-            "1B": [
-                {
-                    "titulo": "AAAAAAAAAAA",
-                    "conteudo": "sssss"
-                }
-            ]
-        },
-        "2025-09-18": {
-            "Francês": [
-                {
-                    "titulo": "aaa",
-                    "conteudo": "222"
-                }
-            ]
-        },
-        "2025-09-11": {
-            "Alienigena do caralho": [
-                {
-                    "titulo": "AAAAAAAAAAA",
-                    "conteudo": "SSSSSSSSSSSSSSSSS"
-                }
-            ]
-        },
-        "2025-09-25": {
-            "Alienigena do caralho": [
-                {
-                    "titulo": "aaa",
-                    "conteudo": "sss"
-                }
-            ]
-        },
-        "2025-09-24": {
-            "1A": [
-                {
-                    "titulo": "22222222",
-                    "conteudo": "dddddddddddd"
-                }
-            ]
-        }
-    }
+    "conteudo": {}
 }
