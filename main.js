@@ -1,6 +1,25 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
-const Db = require('./controller')
+const fs = require('fs');
+const os = require('os');
+const Db = require('./db.json')
+
+function ensureDbExists() {
+    const userDataPath = app.getPath('userData');
+    const userDbPath = path.join(userDataPath, 'db.json');
+    const bundledDbPath = path.join(process.resourcesPath, 'db.json');
+
+    if (!fs.existsSync(userDbPath)) {
+        try {
+            fs.copyFileSync(bundledDbPath, userDbPath);
+            console.log('✅ db.json copiado para:', userDbPath);
+        } catch (err) {
+            console.error('❌ Falha ao copiar db.json:', err);
+        }
+    } else {
+        console.log('ℹ️ db.json já existe em:', userDbPath);
+    }
+}
 
 // keep main window variable from being garbaje collected
 let mainWindow
@@ -34,9 +53,6 @@ function createWindow() {
     // Load index.html into the new BrowserWindow
     mainWindow.loadFile('public/index.html')
 
-    // Open DevTools - Remove for PRODUCTION!
-    mainWindow.webContents.openDevTools({ mode: 'right' });
-
     // Listen for window being closed
     mainWindow.on('closed', () => {
         mainWindow = null
@@ -44,7 +60,10 @@ function createWindow() {
 }
 
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+    ensureDbExists()
+    createWindow()
+})
 
 // Quit when all windows are closed - (Not macOS - Darwin)
 app.on('window-all-closed', () => {

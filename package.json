@@ -1,17 +1,35 @@
 {
   "name": "lessons_calendar",
   "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "watch": "nodemon --exec electron ."
+    "watch": "nodemon --exec electron .",
+    "dist": "electron-builder"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "build": {
+    "appId": "com.lessons.calendar",
+    "productName": "Calendario de Aulas",
+    "files": [
+      "public/**/*",
+      "db.json",
+      "*.js",
+      "preload.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/favicon.ico"
+    }
+  },
   "devDependencies": {
     "electron": "^36.7.0",
+    "electron-builder": "^26.0.12",
     "fullcalendar": "^6.1.18",
     "nodemon": "^3.1.10"
   },
