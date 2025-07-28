@@ -1,13 +1,12 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
-const path = require('path')
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
 const fs = require('fs');
-const os = require('os');
-const Db = require('./db.json')
+const controller = require('./controller.js');
 
 function ensureDbExists() {
     const userDataPath = app.getPath('userData');
     const userDbPath = path.join(userDataPath, 'db.json');
-    const bundledDbPath = path.join(process.resourcesPath, 'db.json');
+    const bundledDbPath = path.join(__dirname, 'db.json');
 
     if (!fs.existsSync(userDbPath)) {
         try {
@@ -19,19 +18,29 @@ function ensureDbExists() {
     } else {
         console.log('ℹ️ db.json já existe em:', userDbPath);
     }
+
+    controller.setDbPath(userDbPath); // configura o caminho para o controller usar
 }
 
 // keep main window variable from being garbaje collected
 let mainWindow
 
 // ipc methods
-ipcMain.handle('getClass', (event, args = null) => { return Db.getClass(args) })
+ipcMain.handle('getClass', (event, args = null) => {
+    return controller.getClass(args);
+})
 
-ipcMain.handle('getConteudo', (event, args = null) => { return Db.getContent(args) })
+ipcMain.handle('getConteudo', (event, args = null) => {
+    return controller.getContent(args);
+})
 
-ipcMain.handle('addClassroom', (event, args = null) => { return Db.addClassroom(args) })
+ipcMain.handle('addClassroom', (event, args = null) => {
+    return controller.addClassroom(args);
+})
 
-ipcMain.handle('addContent', (event, args = null) => { return Db.addContent(args) })
+ipcMain.handle('addContent', (event, args = null) => {
+    return controller.addContent(args);
+})
 
 // create window function
 function createWindow() {
