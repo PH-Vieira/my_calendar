@@ -36,6 +36,8 @@ html, body {
 }
 
 .col {
+    overflow: auto;
+
     background-color: orange;
 
     width: 29%;

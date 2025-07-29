@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     salaContainer.innerHTML = ''
 
-                    contentContainer.innerHTML = ''
-
                     window.calendarAPI.selectClassFromDateInCalendar(selectedDate).then(classRes => {
                         salas = classRes?.data || []
                         if (salas?.length >= 1) {
@@ -36,9 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 btn.addEventListener('click', (event) => {
                                     document.getElementById('show-mago').style.display = 'inline-block'
 
-                                    contentContainer.innerHTML = ''
-
-                                    loadContent(salaAtiva)
+                                    loadContent()
                                 })
                                 salaContainer.appendChild(btn)
                             })

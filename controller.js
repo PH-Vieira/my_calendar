@@ -36,27 +36,27 @@ export function addContent(args) {
     try {
         const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
 
-        if (!Object.keys(data['conteudo']).includes(args[0])) {
-            data['conteudo'][args[0]] = {};
-            data['conteudo'][args[0]][args[1]] = [{
+        if (!Object.keys(data['conteudo']).includes(args[1])) {
+            data['conteudo'][args[1]] = {}
+            data['conteudo'][args[1]][args[0]] = []
+            data['conteudo'][args[1]][args[0]].push({
                 "titulo": args[2],
                 "conteudo": args[3]
-            }];
-        } else if (!Object.keys(data['conteudo'][args[0]]).includes(args[1])) {
-            data['conteudo'][args[0]][args[1]] = [{
+            })
+        } else if (!Object.keys(data['conteudo'][args[1]]).includes(args[0])) {
+            data['conteudo'][args[1]][args[0]] = []
+            data['conteudo'][args[1]][args[0]].push({
                 "titulo": args[2],
                 "conteudo": args[3]
-            }];
+            })
         } else {
-            const exists = data['conteudo'][args[0]][args[1]].some(el => el['titulo'] === args[2]);
-            if (exists) {
-                return { message: 'Já existe conteúdo com esse título' };
-            } else {
-                data['conteudo'][args[0]][args[1]].push({
-                    "titulo": args[2],
-                    "conteudo": args[3]
-                });
-            }
+            data['conteudo'][args[0]][args[1]].forEach(el => {
+                if (el.titulo === args[2]) return { message: 'Já existe uma aula com esse título' }
+            })
+            data['conteudo'][args[0]][argg[1]].push({
+                "titulo": args[2],
+                "conteudo": args[3]
+            })
         }
 
         fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 4));
@@ -87,13 +87,13 @@ export function getClass(diaDaSemana = null) {
     }
 }
 
-export function getContent(_class = null) {
+export function getContent() {
     try {
         const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
 
         return {
             message: 'Success',
-            data: data['conteudo'][_class[1]][_class[0]]
+            data: data['conteudo']
         };
     } catch (error) {
         return {

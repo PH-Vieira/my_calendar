@@ -1,13 +1,65 @@
 {
-    "salas": [],
+    "salas": [
+        "1A",
+        "2A"
+    ],
     "salasPorDiaDaSemana": {
-        "segunda": [],
-        "terca": [],
-        "quarta": [],
-        "quinta": [],
-        "sexta": [],
-        "sabado": [],
-        "domingo": []
+        "segunda": [
+            "1A",
+            "2A"
+        ],
+        "terca": [
+            "1A",
+            "2A"
+        ],
+        "quarta": [
+            "1A",
+            "2A"
+        ],
+        "quinta": [
+            "1A"
+        ],
+        "sexta": [
+            "1A",
+            "2A"
+        ],
+        "sabado": [
+            "1A"
+        ],
+        "domingo": [
+            "1A"
+        ]
     },
-    "conteudo": {}
+    "conteudo": {
+        "1A": {
+            "2025-10-20": [
+                {
+                    "titulo": "teste2",
+                    "conteudo": "awdawdawd"
+                },
+                {
+                    "titulo": "teste3",
+                    "conteudo": "teste3"
+                },
+                {
+                    "titulo": "teste4",
+                    "conteudo": "teste4"
+                }
+            ],
+            "2025-10-07": [
+                {
+                    "titulo": "adwaw",
+                    "conteudo": "sdsdvs"
+                }
+            ]
+        },
+        "2A": {
+            "2025-09-16": [
+                {
+                    "titulo": "awdawda",
+                    "conteudo": "dxvxdv"
+                }
+            ]
+        }
+    }
 }
