@@ -8,6 +8,7 @@ html, body {
     padding: 0;
     overflow: hidden;
     height: 100%;
+    background-color: white;
 }
 
 .container {
@@ -15,6 +16,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-height: 90%;
 }
 
 .fosco {
@@ -38,7 +40,7 @@ html, body {
 .col {
     overflow: auto;
 
-    background-color: orange;
+    background-color: rgb(131, 207, 255);
 
     width: 29%;
     margin: 1em 0 1em 0;
@@ -172,7 +174,7 @@ html, body {
 }
 
 #show-mago {
-    display: none;
+    /* display: none; */
 }
 
 #mago-form-conteudo {

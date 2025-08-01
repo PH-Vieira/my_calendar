@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                 btn.classList.add('sala-btn')
 
                                 btn.addEventListener('click', (event) => {
-                                    document.getElementById('show-mago').style.display = 'inline-block'
+                                    // document.getElementById('show-mago').style.display = 'inline-block'
 
-                                    loadContent()
+                                    // loadContent()
                                 })
                                 salaContainer.appendChild(btn)
                             })

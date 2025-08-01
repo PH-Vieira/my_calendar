@@ -1,23 +1,28 @@
 {
     "salas": [
         "1A",
-        "2A"
+        "2A",
+        "3A"
     ],
     "salasPorDiaDaSemana": {
         "segunda": [
             "1A",
-            "2A"
+            "2A",
+            "3A"
         ],
         "terca": [
             "1A",
-            "2A"
+            "2A",
+            "3A"
         ],
         "quarta": [
             "1A",
-            "2A"
+            "2A",
+            "3A"
         ],
         "quinta": [
-            "1A"
+            "1A",
+            "3A"
         ],
         "sexta": [
             "1A",
@@ -51,6 +56,24 @@
                     "titulo": "adwaw",
                     "conteudo": "sdsdvs"
                 }
+            ],
+            "2025-10-13": [
+                {
+                    "titulo": "ksoevksoekf",
+                    "conteudo": "ekosbkfoskb"
+                }
+            ],
+            "2025-07-14": [
+                {
+                    "titulo": "AQUI",
+                    "conteudo": "MIXIRICA"
+                }
+            ],
+            "2026-01-05": [
+                {
+                    "titulo": "AAAAAAAAAAAAAAAAA",
+                    "conteudo": "aowdowkdo"
+                }
             ]
         },
         "2A": {
@@ -58,6 +81,20 @@
                 {
                     "titulo": "awdawda",
                     "conteudo": "dxvxdv"
+                }
+            ]
+        },
+        "3A": {
+            "2025-09-04": [
+                {
+                    "titulo": "wodkaowdko",
+                    "conteudo": "oekfosekf"
+                }
+            ],
+            "2025-09-10": [
+                {
+                    "titulo": "wodkaowdko2",
+                    "conteudo": "oekfosekf"
                 }
             ]
         }

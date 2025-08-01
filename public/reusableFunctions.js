@@ -24,20 +24,21 @@ function loadContent() {
 
             // console.log(Object.entries(sala[1]))
             Object.entries(sala[1]).forEach(_data => {
-                console.log(_data)
+                // console.log(_data)
                 const data_div = document.createElement('div')
                 data_div.style.border = '1px solid black'
                 data_div.style.borderRadius = '7px'
                 data_div.style.margin = '.77em .34em'
                 data_div.innerText = _data[0]
 
+                let aula_div
                 _data[1].forEach(aula => {
-                    const aula_div = document.createElement('div')
-                    aula_div.style.border = '1px solid black'
-                    aula_div.style.borderRadius = '7px'
+                    aula_div = document.createElement('div')
+                    // aula_div.style.border = '1px solid black'
+                    // aula_div.style.borderRadius = '7px'
                     aula_div.style.margin = '.77em .34em'
                     const titulo = document.createElement('h5')
-                    titulo.innerText = aula['titulo']
+                    titulo.innerText = `${ _data[0].slice(5).replace('-', '/')} - ${aula['titulo']}`
                     const conteudo = document.createElement('p')
                     conteudo.innerText = aula['conteudo']
                     aula_div.appendChild(titulo)
@@ -45,7 +46,7 @@ function loadContent() {
                     data_div.appendChild(aula_div)
                 })
 
-                sala_div.appendChild(data_div)
+                sala_div.appendChild(aula_div)
             })
             novaDiv.appendChild(sala_div)
         })
