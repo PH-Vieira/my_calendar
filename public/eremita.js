@@ -1,9 +1,25 @@
 showEremita.addEventListener('click', event => {
     eremita.style.display = 'flex'
+    eremita.style.zIndex = '10'
+    eremitaBtnContainer.style.animation = '.3s cubic-bezier(0.42, 0, 0.58, 1) 0s entrance'
+    eremitaBtnContainer.style.transform = 'translateY(0)'
+    eremitaForm.style.animation = '.3s cubic-bezier(0.42, 0, 0.58, 1) 0s entrance'
+    eremitaForm.style.transform = 'translateY(0)'
+
+    morte.style.filter = 'blur(1px)'
 })
 
 eremitaCancelBtn.addEventListener('click', event => {
-    eremita.style.display = 'none'
+    eremitaBtnContainer.style.animation = '.3s cubic-bezier(0.42, 0, 0.58, 1) 0s entrance-out'
+    eremitaBtnContainer.style.transform = 'translateY(100vh)'
+    eremitaForm.style.animation = '.3s cubic-bezier(0.42, 0, 0.58, 1) 0s entrance-out'
+    eremitaForm.style.transform = 'translateY(100vh)'
+
+    setTimeout(() => {
+        eremita.style.display = 'none'
+        morte.style.filter = 'none'
+    }, 200)
+
     diasSelecionados = {
         "domingo": false,
         "segunda": false,
@@ -15,7 +31,7 @@ eremitaCancelBtn.addEventListener('click', event => {
     }
     checkReference.forEach(item => { item.checked = false })
     inputManContent ? inputManContent = '' : ''
-    inputMan.value = ''
+    eremitaFormInput.value = ''
 })
 
 eremitaConfirmBtn.addEventListener('click', event => {
@@ -34,34 +50,6 @@ eremitaConfirmBtn.addEventListener('click', event => {
                                 btn.textContent = sala
                                 btn.classList.add('sala-btn')
 
-                                btn.addEventListener('click', (event) => {
-                                    // document.getElementById('show-mago').style.display = 'inline-block'
-
-                                    // contentContainer.innerHTML = ''
-
-                                    // window.calendarAPI.selectContentFromClass(event.target.innerText, selectedDate).then(contentRes => {
-                                    //     let conteudos = contentRes['data']
-
-                                    //     if (Array.isArray(conteudos)) {
-                                    //         conteudos.forEach(conteudo => {
-                                    //             const novaDiv = document.createElement('div')
-                                    //             const titulo = document.createElement('h3')
-                                    //             titulo.innerText = conteudo['titulo']
-                                    //             const cont = document.createElement('p')
-                                    //             cont.innerText = conteudo['conteudo']
-
-                                    //             novaDiv.appendChild(titulo)
-                                    //             novaDiv.appendChild(cont)
-
-                                    //             contentContainer.appendChild(novaDiv)
-                                    //         })
-                                    //     } else {
-                                    //         const novaDiv = document.createElement('div')
-                                    //         novaDiv.innerText = 'Sem conteúdo'
-                                    //         contentContainer.appendChild(novaDiv)
-                                    //     }
-                                    // })
-                                })
                                 salaContainer.appendChild(btn)
                             })
                             let salaChildren = Array.from(salaContainer.childNodes)
@@ -80,6 +68,7 @@ eremitaConfirmBtn.addEventListener('click', event => {
                     })
                 }
                 eremita.style.display = 'none'
+                morte.style.filter = 'none'
                 diasSelecionados = {
                     "domingo": false,
                     "segunda": false,
@@ -91,7 +80,7 @@ eremitaConfirmBtn.addEventListener('click', event => {
                 }
                 checkReference.forEach(item => { item.checked = false })
                 inputManContent ? inputManContent = '' : ''
-                inputMan.value = ''
+                eremitaFormInput.value = ''
             })
         } else {
             console.log('faltou o dia')
@@ -104,8 +93,8 @@ eremitaForm.addEventListener('submit', event => {
 })
 
 
-inputMan.addEventListener('input', () => {
-    inputManContent = inputMan.value
+eremitaFormInput.addEventListener('input', () => {
+    inputManContent = eremitaFormInput.value
 })
 
 let diasSelecionados = {

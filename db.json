@@ -2,7 +2,9 @@
     "salas": [
         "1A",
         "2A",
-        "3A"
+        "3A",
+        "sala de teste",
+        "macaco"
     ],
     "salasPorDiaDaSemana": {
         "segunda": [
@@ -13,16 +15,20 @@
         "terca": [
             "1A",
             "2A",
-            "3A"
+            "3A",
+            "macaco"
         ],
         "quarta": [
             "1A",
             "2A",
-            "3A"
+            "3A",
+            "sala de teste",
+            "macaco"
         ],
         "quinta": [
             "1A",
-            "3A"
+            "3A",
+            "macaco"
         ],
         "sexta": [
             "1A",
@@ -101,6 +107,14 @@
                 {
                     "titulo": "wodkaowdko2",
                     "conteudo": "oekfosekf"
+                }
+            ]
+        },
+        "undefined": {
+            "undefined": [
+                {
+                    "titulo": "akdaowkd",
+                    "conteudo": "vokokvo"
                 }
             ]
         }

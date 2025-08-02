@@ -3,7 +3,8 @@
     overflow: hidden;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -19,15 +20,6 @@ html, body {
     max-height: 90%;
 }
 
-.fosco {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-}
-
 #morte {
     background-color: white;
 
@@ -35,6 +27,7 @@ html, body {
     display: flex;
     justify-content: space-around;
     margin: auto;
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .col {
@@ -50,8 +43,28 @@ html, body {
 }
 
 .btn-ativo {
-    background-color: chartreuse !important;
-    color: coral;
+    background-color: gold !important;
+    color: black;
+}
+
+@keyframes entrance {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes entrance-out {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100vh);
+    }
 }
 
 #eremita {
@@ -60,9 +73,9 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: -1;
 
-    background-color: brown;
+    background-color: rgba(255, 255, 255, 0.1);
     color: white;
 
     width: 100%;
@@ -72,22 +85,39 @@ html, body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#show-eremita {
+    background-color: white;
+    border: none;
+    border-radius: .5em;
+    padding: 1em 7em;
+    font-size: large;
+    margin-bottom: .3em;
+}
+
+#show-eremita:hover {
+    cursor: pointer;
 }
 
 #eremita-form {
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: cornflowerblue;
+    padding: 8em 1em;
+    border-radius: 1em;
 }
 
 #eremita-form-input-class-name {
     background-color: white;
     border: 1px solid black;
     border-radius: 4px;
-    padding: .23em .34em;
-    font-size: .88em;
+    padding: .33em .44em;
+    font-size: 1.38em;
     field-sizing: content;
     max-width: 40%;
 }
@@ -117,6 +147,10 @@ html, body {
     -webkit-appearance: none;
 }
 
+.eremita-checkbox:hover {
+    cursor: pointer;
+}
+
 .eremita-checkbox::before {
     content: '';
     display: inline-block;
@@ -129,28 +163,53 @@ html, body {
 }
 
 .eremita-checkbox:checked::before {
-    background-color: aquamarine;
-    border-color: burlywood;
+    background-color: greenyellow;
+    border-color: black;
 }
 
-.eremita-btn-container {
-    width: 100%;
+#eremita-btn-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: cornflowerblue;
+    width: fit-content;
+    border-radius: 0em 0em 1em 1em;
+    padding: 0.8em;
 }
 
 .action-btn {
-    padding: 5px 10px;
+    background-color: white;
+    padding: 0.9em 3.3em;
     margin: 1em;
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    border: none;
+    border-radius: 0.5em;
+}
+
+#eremita-cancel-btn {
+    background-color: rgb(255, 20, 147);
+    color: antiquewhite;
     transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-.action-btn:hover {
+#eremita-cancel-btn:hover {
     cursor: pointer;
-    background-color: aliceblue;
-    color: black;
+    background-color: rgb(250, 0, 133);
+    border: 1px solid black;
+    padding: 1.2em 3.5em;
+}
+
+#eremita-confirm-btn {
+    background-color: rgb(127, 255, 212);
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#eremita-confirm-btn:hover {
+    cursor: pointer;
+    background-color: rgb(0, 246, 164);
+    border: 1px solid black;
+    padding: 1.2em 3.5em;
 }
 
 #mago {
@@ -159,10 +218,10 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 9998;
+    z-index: -1;
 
-    background-color: purple;
-    color: greenyellow;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
 
     width: 100%;
     height: 100%;
@@ -171,13 +230,75 @@ html, body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#mago-container {
+    background-color: teal;
+    width: 50%;
+    border-radius: 1em;
+    padding: 4em 1em;
+}
+
+#mago-form-titulo {
+    border-radius: .3em;
+    border: none;
+    padding: .8em 1.5em;
+    font-size: large;
+    margin: 1em 0;
 }
 
 #show-mago {
-    /* display: none; */
+    background-color: white;
+    border: none;
+    border-radius: .5em;
+    padding: 1em 7em;
+    font-size: large;
+    margin-bottom: .3em;
+}
+
+#show-mago:hover {
+    cursor: pointer;
 }
 
 #mago-form-conteudo {
     field-sizing: content;
     max-width: 80vw;
+    border: none;
+    border-radius: 1em;
+    padding: .35em .7em;
+    margin: 1em 0;
+    font-size: large;
+}
+
+#mago-container-btns button {
+    border: none;
+    padding: 0.9em 3.3em;
+    margin: 1em;
+    border-radius: 1em;
+}
+
+#mago-container-btns-cancel {
+    background-color: rgb(255, 20, 147);
+    color: antiquewhite;
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#mago-container-btns-cancel:hover {
+    cursor: pointer;
+    background-color: rgb(250, 0, 133);
+    border: 1px solid black;
+    padding: 1.2em 3.5em;
+}
+
+#mago-container-btns-confirm {
+    background-color: rgb(127, 255, 212);
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#mago-container-btns-confirm:hover {
+    cursor: pointer;
+    background-color: rgb(0, 246, 164);
+    border: 1px solid black;
+    padding: 1.2em 3.5em;
 }

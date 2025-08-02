@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
         timeZone: 'UTC-3',
         initialView: 'multiMonthYear',
         multiMonthMaxColumns: 2,
-        initialDate: '2025-01-01',
         height: '100%',
         views: {
             multiMonthYear: {
@@ -56,22 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
             }
         },
-        events: [
-            {
-                title: 'event 1',
-                start: '2024-01-15',
-                end: '2025-01-20'
-            },
-            {
-                title: 'event 2',
-                start: '2024-01-15',
-                end: '2025-01-20'
-            },
-            {
-                title: 'event 3',
-                start: '2025-01-15'
-            }
-        ]
     })
 
     calendar.render()
