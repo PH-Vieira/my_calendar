@@ -1,13 +1,108 @@
 {
-    "salas": [],
+    "salas": [
+        "1A",
+        "2A",
+        "3A"
+    ],
     "salasPorDiaDaSemana": {
-        "segunda": [],
-        "terca": [],
-        "quarta": [],
-        "quinta": [],
-        "sexta": [],
-        "sabado": [],
-        "domingo": []
+        "segunda": [
+            "1A",
+            "2A",
+            "3A"
+        ],
+        "terca": [
+            "1A",
+            "2A",
+            "3A"
+        ],
+        "quarta": [
+            "1A",
+            "2A",
+            "3A"
+        ],
+        "quinta": [
+            "1A",
+            "3A"
+        ],
+        "sexta": [
+            "1A",
+            "2A"
+        ],
+        "sabado": [
+            "1A"
+        ],
+        "domingo": [
+            "1A"
+        ]
     },
-    "conteudo": {}
+    "conteudo": {
+        "1A": {
+            "2025-10-20": [
+                {
+                    "titulo": "teste2",
+                    "conteudo": "awdawdawd"
+                },
+                {
+                    "titulo": "teste3",
+                    "conteudo": "teste3"
+                },
+                {
+                    "titulo": "teste4",
+                    "conteudo": "teste4"
+                }
+            ],
+            "2025-10-07": [
+                {
+                    "titulo": "adwaw",
+                    "conteudo": "sdsdvs"
+                }
+            ],
+            "2025-10-13": [
+                {
+                    "titulo": "ksoevksoekf",
+                    "conteudo": "ekosbkfoskb"
+                }
+            ],
+            "2025-07-14": [
+                {
+                    "titulo": "AQUI",
+                    "conteudo": "MIXIRICA"
+                }
+            ],
+            "2026-01-05": [
+                {
+                    "titulo": "AAAAAAAAAAAAAAAAA",
+                    "conteudo": "aowdowkdo"
+                }
+            ],
+            "2025-09-04": [
+                {
+                    "titulo": "awdawdwa",
+                    "conteudo": "vdvddxvvd"
+                }
+            ]
+        },
+        "2A": {
+            "2025-09-16": [
+                {
+                    "titulo": "awdawda",
+                    "conteudo": "dxvxdv"
+                }
+            ]
+        },
+        "3A": {
+            "2025-09-04": [
+                {
+                    "titulo": "wodkaowdko",
+                    "conteudo": "oekfosekf"
+                }
+            ],
+            "2025-09-10": [
+                {
+                    "titulo": "wodkaowdko2",
+                    "conteudo": "oekfosekf"
+                }
+            ]
+        }
+    }
 }
