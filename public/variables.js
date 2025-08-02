@@ -1,4 +1,5 @@
 let salas
+let calendar
 let salaAtiva
 let selectedDate
 let lastClickedDate
@@ -6,6 +7,7 @@ let inputManContent = ''
 
 const mago                  = document.getElementById('mago')
 const eremita               = document.getElementById('eremita')
+const calendarEl            = document.getElementById('calendar')
 const showMago              = document.getElementById('show-mago')
 const magoForm              = document.getElementById('mago-form')
 const showEremita           = document.getElementById('show-eremita')
