@@ -5,13 +5,15 @@
         "3A",
         "sala de teste",
         "macaco",
-        "PINDAMONHANGABA"
+        "PINDAMONHANGABA",
+        "apagar"
     ],
     "salasPorDiaDaSemana": {
         "segunda": [
             "1A",
             "2A",
-            "3A"
+            "3A",
+            "apagar"
         ],
         "terca": [
             "1A",
@@ -57,7 +59,7 @@
                 },
                 {
                     "titulo": "teste4",
-                    "conteudo": "teste4"
+                    "conteudo": "new teste5"
                 }
             ],
             "2025-10-07": [
@@ -89,6 +91,12 @@
                     "titulo": "awdawdwa",
                     "conteudo": "vdvddxvvd"
                 }
+            ],
+            "undefined": [
+                {
+                    "titulo": "a",
+                    "conteudo": "b"
+                }
             ]
         },
         "2A": {
@@ -116,14 +124,6 @@
                 {
                     "titulo": "wodkaowdko2",
                     "conteudo": "oekfosekf"
-                }
-            ]
-        },
-        "undefined": {
-            "undefined": [
-                {
-                    "titulo": "akdaowkd",
-                    "conteudo": "vokokvo"
                 }
             ]
         }

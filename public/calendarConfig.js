@@ -40,11 +40,12 @@ document.addEventListener('DOMContentLoaded', function () {
                             if (salaChildren.length >= 1) {
                                 salaChildren.forEach(el => {
                                     el.addEventListener('click', event => {
-                                        salaChildren.forEach(_el => {
-                                            _el.classList.remove('btn-ativo')
-                                        })
-                                        el.classList.add('btn-ativo')
+                                        // salaChildren.forEach(_el => {
+                                        //     _el.classList.remove('btn-ativo')
+                                        // })
+                                        // el.classList.add('btn-ativo')
                                         salaAtiva = el.innerText
+                                        magoSelect.value = salaAtiva
                                     })
                                 })
                             }

@@ -1,9 +1,8 @@
+let p
 let salas
 let calendar
+let textarea
 let salaAtiva
-/**
- * Dia selecionado
- */
 let selectedDate
 let lastClickedDate
 let inputManContent = ''
@@ -19,6 +18,7 @@ const eremitaForm           = document.getElementById('eremita-form')
 const magoContainer         = document.getElementById('mago-container')
 const salaContainer         = document.getElementById('sala-container')
 const magoTitulo            = document.getElementById('mago-form-titulo')
+const magoSelect            = document.getElementById('mago-form-select')
 const magoConteudo          = document.getElementById('mago-form-conteudo')
 const contentContainer      = document.getElementById('conteudo-container')
 const eremitaCancelBtn      = document.getElementById('eremita-cancel-btn')

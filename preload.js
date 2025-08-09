@@ -16,19 +16,17 @@ contextBridge.exposeInMainWorld('calendarAPI', {
     getContentFromClass: async (event, data) => {
         return await ipcRenderer.invoke('getConteudo', [event, data])
     },
-
-    /**
-     * 
-     * @param {*} event 
-     * @param {*} data 
-     * @returns 
-     */
     getAllContent: async (event, data) => {
         return await ipcRenderer.invoke('getAllContent', [event, data])
+    },
+    getAllClassrooms: async (event, data) => {
+        return await ipcRenderer.invoke('getAllClassrooms', [event, data])
     },
 
     addSalaDeAula: async (event) => {
         return await ipcRenderer.invoke('addClassroom', event)
     },
-    addConteudo: async (event) => { return await ipcRenderer.invoke('addContent', event) }
+    addConteudo: async (event) => { return await ipcRenderer.invoke('addContent', event) },
+
+    setContent: async (event) => { return await ipcRenderer.invoke('setContent', event) }
 })

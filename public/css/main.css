@@ -240,6 +240,12 @@ body {
     padding: 4em 1em;
 }
 
+#mago-form-select {
+    padding: .8em 1.5em;
+    border: none;
+    border-radius: .3em;
+}
+
 #mago-form-titulo {
     border-radius: .3em;
     border: none;
@@ -263,12 +269,16 @@ body {
 
 #mago-form-conteudo {
     field-sizing: content;
-    max-width: 80vw;
     border: none;
     border-radius: 1em;
     padding: .35em .7em;
     margin: 1em 0;
     font-size: large;
+    width: 350px;
+    height: 300px;
+    max-width: 400px;
+    min-width: 90px;
+    min-height: 20px;
 }
 
 #mago-container-btns button {

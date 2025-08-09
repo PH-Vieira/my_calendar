@@ -47,6 +47,14 @@ ipcMain.handle('getAllContent', (event, args = null) => {
     return controller.getAllContent(args)
 })
 
+ipcMain.handle('getAllClassrooms', (event, args = null) => {
+    return controller.getAllClassrooms(args)
+})
+
+ipcMain.handle('setContent', (event, args = null) => {
+    return controller.setContent(args)
+})
+
 // create window function
 function createWindow() {
     mainWindow = new BrowserWindow({

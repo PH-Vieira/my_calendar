@@ -119,6 +119,8 @@ export function getContent(args) {
             // else { console.log(`Essa sala nao tem conteudo\n`) }
         })
 
+        console.log(aux)
+
         if (nenhuma_aula) {
             return {
                 message: 'Nenhuma aula',
@@ -144,7 +146,7 @@ export function getAllContent(args) {
         let aux = []
 
         Object.values(data['salas']).forEach(sala => {
-            if(data['conteudo'][sala]) {
+            if (data['conteudo'][sala]) {
                 Object.keys(data['conteudo'][sala]).forEach(dia => {
                     let obj = {}
                     obj[dia] = sala
@@ -161,5 +163,45 @@ export function getAllContent(args) {
         return {
             message: `Erro: ${error}`
         };
+    }
+}
+
+export function getAllClassrooms(args) {
+    try {
+        const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
+
+        return {
+            message: 'Success',
+            data: data['salas']
+        }
+    } catch (error) {
+        return {
+            message: `Erro: ${error}`
+        }
+    }
+}
+
+export function setContent(args) {
+    try {
+        const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
+
+        // console.log(args)
+
+        Object.values(data['conteudo'][args[0]][args[1]]).forEach((conteudo, idx, arr) => {
+            if (conteudo['titulo'] == args[2]) {
+                // console.log(idx, conteudo)
+                data['conteudo'][args[0]][args[1]][idx]['conteudo'] = args[3]
+            }
+        })
+
+        fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 4));
+
+        return {
+            message: 'Success'
+        }
+    } catch (error) {
+        return {
+            message: `Erro: ${error}`
+        }
     }
 }

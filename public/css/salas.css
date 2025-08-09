@@ -11,11 +11,12 @@
     margin: 1em 0;
     transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
     font-size: large;
+    cursor: pointer;
 }
 
-.sala-btn:hover {
-    cursor: pointer;
-    background-color: antiquewhite;
+.sala-btn:focus {
+    background-color: midnightblue;
+    color: white;
 }
 
 .col:nth-child(2) {

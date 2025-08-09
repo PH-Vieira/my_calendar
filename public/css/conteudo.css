@@ -15,3 +15,9 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.conteudo-textarea {
+    border-radius: .3em;
+    width: 190px;
+    height: 100px;
+}
