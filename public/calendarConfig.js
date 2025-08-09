@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     salaContainer.innerHTML = ''
 
-                    window.calendarAPI.selectClassFromDateInCalendar(selectedDate).then(classRes => {
+                    loadContent(selectedDate)
+
+                    window.calendarAPI.getClassFromDateInCalendar(selectedDate).then(classRes => {
                         salas = classRes?.data || []
                         if (salas?.length >= 1) {
                             salas.forEach(sala => {
@@ -31,11 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 btn.textContent = sala
                                 btn.classList.add('sala-btn')
 
-                                btn.addEventListener('click', (event) => {
-                                    // document.getElementById('show-mago').style.display = 'inline-block'
-
-                                    // loadContent()
-                                })
+                                // btn.addEventListener('click', (event) => {})
                                 salaContainer.appendChild(btn)
                             })
                             let salaChildren = Array.from(salaContainer.childNodes)

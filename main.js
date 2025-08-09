@@ -28,19 +28,23 @@ let mainWindow
 
 // ipc methods
 ipcMain.handle('getClass', (event, args = null) => {
-    return controller.getClass(args);
+    return controller.getClass(args)
 })
 
 ipcMain.handle('getConteudo', (event, args = null) => {
-    return controller.getContent(args);
+    return controller.getContent(args)
 })
 
 ipcMain.handle('addClassroom', (event, args = null) => {
-    return controller.addClassroom(args);
+    return controller.addClassroom(args)
 })
 
 ipcMain.handle('addContent', (event, args = null) => {
-    return controller.addContent(args);
+    return controller.addContent(args)
+})
+
+ipcMain.handle('getAllContent', (event, args = null) => {
+    return controller.getAllContent(args)
 })
 
 // create window function

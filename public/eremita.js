@@ -37,11 +37,11 @@ eremitaCancelBtn.addEventListener('click', event => {
 eremitaConfirmBtn.addEventListener('click', event => {
     if (inputManContent != '') {
         if (Object.values(diasSelecionados).includes(true)) {
-            window.calendarAPI.AdicionarSalaDeAula([inputManContent, diasSelecionados]).then(res => {
+            window.calendarAPI.addSalaDeAula([inputManContent, diasSelecionados]).then(res => {
                 if (selectedDate) {
                     salaContainer.innerHTML = ''
                     contentContainer.innerHTML = ''
-                    window.calendarAPI.selectClassFromDateInCalendar(selectedDate).then(classRes => {
+                    window.calendarAPI.getClassFromDateInCalendar(selectedDate).then(classRes => {
                         salas = classRes?.data || []
                         if (salas?.length >= 1) {
                             salas.forEach(sala => {

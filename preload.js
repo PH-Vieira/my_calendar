@@ -3,16 +3,32 @@ const { contextBridge, ipcRenderer } = require('electron')
 let diasDaSemana = ['segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado', 'domingo']
 
 contextBridge.exposeInMainWorld('calendarAPI', {
-    selectClassFromDateInCalendar: async (event) => {
+    getClassFromDateInCalendar: async (event) => {
         let diaDaSemana = diasDaSemana[new Date(event).getDay()]
         return await ipcRenderer.invoke('getClass', diaDaSemana)
     },
-    selectContentFromClass: async (event, data) => {
+    /**
+     * 
+     * @param {string} event Dia selecionado para buscar os conteudos lessionados
+     * @param {null} data normalmente nao tem nada aqui 
+     * @returns retorna uma response com os dados no db, se houver conteudo naquele dia, se nao retorna []
+     */
+    getContentFromClass: async (event, data) => {
         return await ipcRenderer.invoke('getConteudo', [event, data])
     },
 
-    AdicionarSalaDeAula: async (event) => {
+    /**
+     * 
+     * @param {*} event 
+     * @param {*} data 
+     * @returns 
+     */
+    getAllContent: async (event, data) => {
+        return await ipcRenderer.invoke('getAllContent', [event, data])
+    },
+
+    addSalaDeAula: async (event) => {
         return await ipcRenderer.invoke('addClassroom', event)
     },
-    AdicionarConteudo: async (event) => { return await ipcRenderer.invoke('addContent', event) }
+    addConteudo: async (event) => { return await ipcRenderer.invoke('addContent', event) }
 })

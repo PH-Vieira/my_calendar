@@ -87,14 +87,76 @@ export function getClass(diaDaSemana = null) {
     }
 }
 
-export function getContent() {
+/**
+ * 
+ * @param {Array} args [Dia selecionado, undefined]
+ * @returns Retorna os conteudos de todas as salas no dia selecionado, se houver
+ */
+export function getContent(args) {
     try {
         const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
 
+        let aux = {}
+
+        let nenhuma_aula = true
+
+        Object.values(data['salas']).forEach(sala => {
+            // console.log(`\nProcurando conteudo para sala ${sala}\n`)
+
+            if (data['conteudo'][sala]) {
+                // console.log(`Essa sala tem conteudo\n`)
+
+                aux[sala] = []
+
+                Object.keys(data['conteudo'][sala]).forEach(dia_da_aula => {
+                    // console.log(`Essa sala tem aula no dia ${dia_da_aula}`)
+                    if (dia_da_aula == args[0]) {
+                        nenhuma_aula = false
+                        aux[sala].push(data['conteudo'][sala][dia_da_aula])
+                    }
+                })
+            }
+            // else { console.log(`Essa sala nao tem conteudo\n`) }
+        })
+
+        if (nenhuma_aula) {
+            return {
+                message: 'Nenhuma aula',
+                data: []
+            };
+        } else {
+            return {
+                message: 'Success',
+                data: aux
+            };
+        }
+    } catch (error) {
+        return {
+            message: `Erro: ${error}`
+        };
+    }
+}
+
+export function getAllContent(args) {
+    try {
+        const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
+
+        let aux = []
+
+        Object.values(data['salas']).forEach(sala => {
+            if(data['conteudo'][sala]) {
+                Object.keys(data['conteudo'][sala]).forEach(dia => {
+                    let obj = {}
+                    obj[dia] = sala
+                    aux.push(obj)
+                })
+            }
+        })
+
         return {
             message: 'Success',
-            data: data['conteudo']
-        };
+            data: aux
+        }
     } catch (error) {
         return {
             message: `Erro: ${error}`

@@ -4,7 +4,8 @@
         "2A",
         "3A",
         "sala de teste",
-        "macaco"
+        "macaco",
+        "PINDAMONHANGABA"
     ],
     "salasPorDiaDaSemana": {
         "segunda": [
@@ -35,10 +36,12 @@
             "2A"
         ],
         "sabado": [
-            "1A"
+            "1A",
+            "PINDAMONHANGABA"
         ],
         "domingo": [
-            "1A"
+            "1A",
+            "PINDAMONHANGABA"
         ]
     },
     "conteudo": {
@@ -93,6 +96,12 @@
                 {
                     "titulo": "awdawda",
                     "conteudo": "dxvxdv"
+                }
+            ],
+            "2025-09-04": [
+                {
+                    "titulo": "teste 2",
+                    "conteudo": "dawdadw"
                 }
             ]
         },

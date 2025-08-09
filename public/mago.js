@@ -25,7 +25,7 @@ MagoConfirmBtn.addEventListener('click', event => {
     event.preventDefault()
 
     if (magoTitulo.value != '' && magoConteudo.value != '' && salaAtiva != '') {
-        window.calendarAPI.AdicionarConteudo([selectedDate, salaAtiva, magoTitulo.value, magoConteudo.value]).then(res => {
+        window.calendarAPI.addConteudo([selectedDate, salaAtiva, magoTitulo.value, magoConteudo.value]).then(res => {
             loadContent()
             magoContainer.style.animation = '.3s cubic-bezier(0.42, 0, 0.58, 1) 0s entrance-out'
             magoContainer.style.transform = 'translateY(100vh)'

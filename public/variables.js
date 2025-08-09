@@ -1,6 +1,9 @@
 let salas
 let calendar
 let salaAtiva
+/**
+ * Dia selecionado
+ */
 let selectedDate
 let lastClickedDate
 let inputManContent = ''
