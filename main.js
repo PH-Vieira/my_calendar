@@ -75,7 +75,7 @@ function createWindow() {
     // Load index.html into the new BrowserWindow
     mainWindow.loadFile('public/index.html')
 
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 
     // Listen for window being closed
     mainWindow.on('closed', () => {
