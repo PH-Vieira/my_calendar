@@ -12,6 +12,16 @@ body {
     background-color: white;
 }
 
+.titlebar {
+    height: 30px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    app-region: drag;
+}
+
 .container {
     display: flex;
     flex-direction: column;

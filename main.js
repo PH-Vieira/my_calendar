@@ -61,6 +61,15 @@ function createWindow() {
         width: 1500, height: 900,
         minWidth: 950, minHeight: 500,
         backgroundColor: '#fff',
+        icon: __dirname + '/assets/icons/png/64x64.png',
+        // frame: false,
+        titleBarStyle: "hidden",
+        ...(process.platform !== 'darwin' ? { titleBarOverlay: true } : {}),
+        // titleBarOverlay: {
+            // color: '#2f3241',
+            // symbolColor: '#ffffff',
+            // height: 30
+        // },
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             // --- !! IMPORTANT !! ---
@@ -85,7 +94,7 @@ function createWindow() {
 
 
 app.on('ready', () => {
-    ensureDbExists(true)
+    ensureDbExists()
     createWindow()
 })
 
