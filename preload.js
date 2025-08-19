@@ -19,8 +19,8 @@ contextBridge.exposeInMainWorld('calendarAPI', {
     getAllContent: async (event, data) => {
         return await ipcRenderer.invoke('getAllContent', [event, data])
     },
-    getAllClassrooms: async (event, data) => {
-        return await ipcRenderer.invoke('getAllClassrooms', [event, data])
+    updateActiveClassroom: async (event, data) => {
+        return await ipcRenderer.invoke('updateActiveClassroom', [event, data])
     },
 
     addSalaDeAula: async (event) => {

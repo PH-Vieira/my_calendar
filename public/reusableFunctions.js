@@ -9,7 +9,6 @@ async function loadContent(dia) {
         let aux = []
         contentContainer.innerHTML = ''
         let data = res['data']
-        // console.log(data)
 
         const novaDiv = document.createElement('div')
         novaDiv.style.width = '90%'
@@ -24,7 +23,6 @@ async function loadContent(dia) {
         let existe_conteudo = false
 
         Object.entries(data).forEach(sala => {
-            // console.log('sala: ', sala[1].length)
             sala[1].length > 0 ? existe_conteudo = true : ''
 
             const sala_div = document.createElement('div')
@@ -34,17 +32,12 @@ async function loadContent(dia) {
             sala_div.style.paddingTop = '1em'
             sala_div.innerText = sala[0]
 
-            // console.log(Object.entries(sala[1]))
-            // console.log(sala[1].length)
             Object.entries(sala[1]).forEach(_data => {
-                // console.log(_data)
                 aux.push({
                     title: sala[0],
                     date: dia
                 })
                 const data_div = document.createElement('div')
-
-                // console.log(`\nAux: ${JSON.stringify(aux)}\n`)
 
                 let aula_div
                 _data[1].forEach(aula => {
@@ -76,6 +69,7 @@ async function loadContent(dia) {
             sala[1].length > 0 ? novaDiv.appendChild(sala_div) : ''
         })
         existe_conteudo ? contentContainer.appendChild(novaDiv) : ''
+        updateCalendarEvents()
     })
 }
 
@@ -89,7 +83,7 @@ function ativarEdicao(sala, dia, titulo, p) {
 
     textarea.addEventListener('blur', event => {
         window.calendarAPI.setContent([sala, dia, titulo, textarea.value]).then(res => {
-            console.log(res)
+            // console.log(res)
         })
         const newP = document.createElement('p')
         newP.textContent = textarea.value
@@ -100,23 +94,16 @@ function ativarEdicao(sala, dia, titulo, p) {
     })
 }
 
-async function getAllClassrooms() {
-    window.calendarAPI.getAllClassrooms().then(res => {
-        salas = res.data
-
-        salaAtiva = salas[0]
-
-        salas.forEach(sala => {
-            let el = document.createElement("option")
-            el.value = sala
-            el.innerText = sala
-            magoSelect.appendChild(el)
-        })
+async function updateActiveClassroom() {
+    magoSelect.innerHTML = ''
+    let salaChildren = Array.from(salaContainer.childNodes)
+    console.log(salaChildren, magoSelect)
+    salaChildren.forEach(el => {
+        let aux = document.createElement('option')
+        aux.value = el.innerText
+        aux.innerText = el.innerText
+        magoSelect.appendChild(aux)
     })
-}
-
-function invertMonthDay(data) {
-    console.log(data.length)
 }
 
 function gerarSequenciaBaseadaEm(str, tamanho = 6) {
@@ -144,17 +131,29 @@ document.addEventListener('calendarReady', () => {
 })
 
 document.addEventListener('contentReady', () => {
+    updateCalendarEvents()
+
+    updateActiveClassroom()
+})
+
+function updateCalendarEvents() {
     calendar.removeAllEvents()
 
-    datas.forEach(el => {
-        calendar.addEvent(
-            {
-                title: Object.values(el)[0],
-                start: Object.keys(el)[0],
-                allDay: true
-            }
-        )
-    })
+    let alreadyAdded = []
 
-    getAllClassrooms()
-})
+    datas.forEach(el => {
+        console.log(Object.values(el)[0])
+        if (!alreadyAdded.includes(Object.values(el)[0])) {
+            calendar.addEvent(
+                {
+                    title: Object.values(el)[0],
+                    start: Object.keys(el)[0],
+                    allDay: true
+                }
+            )
+        } else {
+            alreadyAdded.push(Object.values(el)[0])
+        }
+    })
+    console.log(alreadyAdded)
+}

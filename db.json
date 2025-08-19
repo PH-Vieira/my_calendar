@@ -1,13 +1,110 @@
 {
-    "salas": [],
+    "salas": [
+        "sala1",
+        "sala2",
+        "sala3",
+        "sala4",
+        "sala5",
+        "terca",
+        "qui",
+        "sex👌",
+        "👆👌😁👍🤣😒",
+        "sexo",
+        "sala44",
+        "sala303"
+    ],
     "salasPorDiaDaSemana": {
-        "segunda": [],
-        "terca": [],
-        "quarta": [],
-        "quinta": [],
-        "sexta": [],
-        "sabado": [],
-        "domingo": []
+        "segunda": [
+            "sala4",
+            "sala303"
+        ],
+        "terca": [
+            "terca"
+        ],
+        "quarta": [
+            "sala5"
+        ],
+        "quinta": [
+            "qui"
+        ],
+        "sexta": [
+            "sala1",
+            "sex👌"
+        ],
+        "sabado": [
+            "sala2",
+            "👆👌😁👍🤣😒",
+            "sexo"
+        ],
+        "domingo": [
+            "sala3",
+            "sala44"
+        ]
     },
-    "conteudo": {}
+    "conteudo": {
+        "sala1": {
+            "2025-08-01": [
+                {
+                    "titulo": "teste 1",
+                    "conteudo": "fi"
+                }
+            ]
+        },
+        "sala2": {
+            "2025-08-02": [
+                {
+                    "titulo": "amongus?",
+                    "conteudo": "awdawdad"
+                },
+                {
+                    "titulo": "sfesfes",
+                    "conteudo": "fesfesfesfes"
+                },
+                {
+                    "titulo": "sfesf",
+                    "conteudo": "sefsefse"
+                },
+                {
+                    "titulo": "efsfsf",
+                    "conteudo": "sefsefsef"
+                },
+                {
+                    "titulo": "bbgcbgccbg",
+                    "conteudo": "gcgcngccbgcbg"
+                },
+                {
+                    "titulo": "dhfthfth",
+                    "conteudo": "fhfthfth"
+                },
+                {
+                    "titulo": "awdawdawd",
+                    "conteudo": "awdawdawd"
+                },
+                {
+                    "titulo": "dgrdgdrg",
+                    "conteudo": "drgdrgdrg"
+                },
+                {
+                    "titulo": "awdawdawdawd",
+                    "conteudo": "awdawdawd"
+                },
+                {
+                    "titulo": "xvdvdxvd",
+                    "conteudo": "xdvvxdvdx"
+                },
+                {
+                    "titulo": "zzczccsz",
+                    "conteudo": "sczcszcscsz"
+                },
+                {
+                    "titulo": "azzzz",
+                    "conteudo": "zzzzz"
+                },
+                {
+                    "titulo": "adwadadw",
+                    "conteudo": "aadadad"
+                }
+            ]
+        }
+    }
 }

@@ -14,8 +14,8 @@ body {
 
 .titlebar {
     height: 30px;
-    background-color: black;
-    color: white;
+    background-color: #2f3241;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,6 +44,8 @@ body {
     overflow: auto;
 
     background-color: rgb(131, 207, 255);
+
+    height: 90vh;
 
     width: 29%;
     margin: 1em 0 1em 0;

@@ -6,18 +6,17 @@ const controller = require('./controller.js');
 function ensureDbExists(devMode = false) {
     const userDataPath = app.getPath('userData')
     const userDbPath = devMode ? './db.json' : path.join(userDataPath, 'db.json')
-    console.log(userDbPath)
     const bundledDbPath = path.join(__dirname, 'db.json')
 
     if (!devMode && !fs.existsSync(userDbPath)) {
         try {
             fs.copyFileSync(bundledDbPath, userDbPath)
-            console.log('✅ db.json copiado para:', userDbPath)
+            // console.log('✅ db.json copiado para:', userDbPath)
         } catch (err) {
-            console.error('❌ Falha ao copiar db.json:', err)
+            // console.error('❌ Falha ao copiar db.json:', err)
         }
     } else {
-        console.log('ℹ️ db.json já existe em:', userDbPath)
+        // console.log('ℹ️ db.json já existe em:', userDbPath)
     }
 
     controller.setDbPath(userDbPath) // configura o caminho para o controller usar
@@ -47,8 +46,8 @@ ipcMain.handle('getAllContent', (event, args = null) => {
     return controller.getAllContent(args)
 })
 
-ipcMain.handle('getAllClassrooms', (event, args = null) => {
-    return controller.getAllClassrooms(args)
+ipcMain.handle('updateActiveClassroom', (event, args = null) => {
+    return controller.updateActiveClassroom(args)
 })
 
 ipcMain.handle('setContent', (event, args = null) => {
@@ -65,11 +64,11 @@ function createWindow() {
         // frame: false,
         titleBarStyle: "hidden",
         ...(process.platform !== 'darwin' ? { titleBarOverlay: true } : {}),
-        // titleBarOverlay: {
-            // color: '#2f3241',
-            // symbolColor: '#ffffff',
-            // height: 30
-        // },
+        titleBarOverlay: {
+            color: '#2f3241',
+            symbolColor: '#ffffff',
+            height: 30
+        },
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             // --- !! IMPORTANT !! ---
@@ -84,7 +83,7 @@ function createWindow() {
     // Load index.html into the new BrowserWindow
     mainWindow.loadFile('public/index.html')
 
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     // Listen for window being closed
     mainWindow.on('closed', () => {
@@ -94,7 +93,7 @@ function createWindow() {
 
 
 app.on('ready', () => {
-    ensureDbExists()
+    ensureDbExists(true)
     createWindow()
 })
 

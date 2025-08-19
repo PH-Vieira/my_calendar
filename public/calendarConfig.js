@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         lastClickedDate.style.border = ""
                         lastClickedDate.style.borderRadius = ""
                         lastClickedDate = info.dayEl
-                        info.dayEl.style.border = "2px solid red"
+                        info.dayEl.style.border = "2px solid purple"
                     } else {
                         lastClickedDate = info.dayEl
-                        info.dayEl.style.border = "2px solid red"
+                        info.dayEl.style.border = "2px solid purple"
                     }
                     selectedDate = info.dateStr
 
@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     loadContent(selectedDate)
 
                     window.calendarAPI.getClassFromDateInCalendar(selectedDate).then(classRes => {
-                        salas = classRes?.data || []
-                        if (salas?.length >= 1) {
-                            salas.forEach(sala => {
+                        salasDoDia = classRes?.data || []
+                        if (salasDoDia?.length >= 1) {
+                            salasDoDia.forEach(sala => {
                                 const btn = document.createElement('button')
 
                                 btn.textContent = sala
@@ -37,19 +37,19 @@ document.addEventListener('DOMContentLoaded', function () {
                                 salaContainer.appendChild(btn)
                             })
                             let salaChildren = Array.from(salaContainer.childNodes)
-                            if (salaChildren.length >= 1) {
-                                salaChildren.forEach(el => {
-                                    el.addEventListener('click', event => {
-                                        // salaChildren.forEach(_el => {
-                                        //     _el.classList.remove('btn-ativo')
-                                        // })
-                                        // el.classList.add('btn-ativo')
-                                        salaAtiva = el.innerText
-                                        magoSelect.value = salaAtiva
-                                    })
-                                })
-                            }
+                            
+                            // salaChildren.forEach(el => {
+                                // el.addEventListener('click', event => {
+                                    // salaChildren.forEach(_el => {
+                                    //     _el.classList.remove('btn-ativo')
+                                    // })
+                                    // el.classList.add('btn-ativo')
+                                    salaAtiva = salaChildren[0].innerText
+                                    magoSelect.value = salaAtiva
+                                // })
+                            // })
                         }
+                        updateActiveClassroom()
                     })
                 },
             }

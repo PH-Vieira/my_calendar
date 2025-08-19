@@ -42,9 +42,9 @@ eremitaConfirmBtn.addEventListener('click', event => {
                     salaContainer.innerHTML = ''
                     contentContainer.innerHTML = ''
                     window.calendarAPI.getClassFromDateInCalendar(selectedDate).then(classRes => {
-                        salas = classRes?.data || []
-                        if (salas?.length >= 1) {
-                            salas.forEach(sala => {
+                        salasDoDia = classRes?.data || []
+                        if (salasDoDia?.length >= 1) {
+                            salasDoDia.forEach(sala => {
                                 const btn = document.createElement('button')
 
                                 btn.textContent = sala
@@ -52,18 +52,18 @@ eremitaConfirmBtn.addEventListener('click', event => {
 
                                 salaContainer.appendChild(btn)
                             })
-                            let salaChildren = Array.from(salaContainer.childNodes)
-                            if (salaChildren.length >= 1) {
-                                salaChildren.forEach(el => {
-                                    el.addEventListener('click', event => {
-                                        salaChildren.forEach(_el => {
-                                            _el.classList.remove('btn-ativo')
-                                        })
-                                        el.classList.add('btn-ativo')
-                                        salaAtiva = el.innerText
-                                    })
-                                })
-                            }
+                            // let salaChildren = Array.from(salaContainer.childNodes)
+                            // if (salaChildren.length >= 1) {
+                                // salaChildren.forEach(el => {
+                                    // el.addEventListener('click', event => {
+                                    //     salaChildren.forEach(_el => {
+                                    //         _el.classList.remove('btn-ativo')
+                                    //     })
+                                    //     el.classList.add('btn-ativo')
+                                    //     salaAtiva = el.innerText
+                                    // })
+                                // })
+                            // }
                         }
                     })
                 }
@@ -81,11 +81,14 @@ eremitaConfirmBtn.addEventListener('click', event => {
                 checkReference.forEach(item => { item.checked = false })
                 inputManContent ? inputManContent = '' : ''
                 eremitaFormInput.value = ''
+                updateActiveClassroom()
             })
         } else {
-            console.log('faltou o dia')
+            // console.log('faltou o dia')
         }
-    } else { console.log('faltou o nome') }
+    } else {
+        // console.log('faltou o nome')
+    }
 })
 
 eremitaForm.addEventListener('submit', event => {

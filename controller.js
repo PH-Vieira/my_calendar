@@ -36,24 +36,22 @@ export function addContent(args) {
     try {
         const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
 
-        if (!Object.keys(data['conteudo']).includes(args[1])) {
-            data['conteudo'][args[1]] = {}
-            data['conteudo'][args[1]][args[0]] = []
+        if (data['conteudo'][args[1]][args[0]]) {
             data['conteudo'][args[1]][args[0]].push({
                 "titulo": args[2],
                 "conteudo": args[3]
             })
-        } else if (!Object.keys(data['conteudo'][args[1]]).includes(args[0])) {
+        } else if (data['conteudo'][args[1]]) {
             data['conteudo'][args[1]][args[0]] = []
             data['conteudo'][args[1]][args[0]].push({
                 "titulo": args[2],
                 "conteudo": args[3]
             })
         } else {
-            data['conteudo'][args[0]][args[1]].forEach(el => {
+            data['conteudo'][args[1]][args[0]].forEach(el => {
                 if (el.titulo === args[2]) return { message: 'Já existe uma aula com esse título' }
             })
-            data['conteudo'][args[0]][argg[1]].push({
+            data['conteudo'][args[1]][argg[0]].push({
                 "titulo": args[2],
                 "conteudo": args[3]
             })
@@ -101,25 +99,19 @@ export function getContent(args) {
         let nenhuma_aula = true
 
         Object.values(data['salas']).forEach(sala => {
-            // console.log(`\nProcurando conteudo para sala ${sala}\n`)
 
             if (data['conteudo'][sala]) {
-                // console.log(`Essa sala tem conteudo\n`)
 
                 aux[sala] = []
 
                 Object.keys(data['conteudo'][sala]).forEach(dia_da_aula => {
-                    // console.log(`Essa sala tem aula no dia ${dia_da_aula}`)
                     if (dia_da_aula == args[0]) {
                         nenhuma_aula = false
                         aux[sala].push(data['conteudo'][sala][dia_da_aula])
                     }
                 })
             }
-            // else { console.log(`Essa sala nao tem conteudo\n`) }
         })
-
-        console.log(aux)
 
         if (nenhuma_aula) {
             return {
@@ -166,7 +158,7 @@ export function getAllContent(args) {
     }
 }
 
-export function getAllClassrooms(args) {
+export function updateActiveClassroom(args) {
     try {
         const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
 
@@ -185,11 +177,8 @@ export function setContent(args) {
     try {
         const data = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'))
 
-        // console.log(args)
-
         Object.values(data['conteudo'][args[0]][args[1]]).forEach((conteudo, idx, arr) => {
             if (conteudo['titulo'] == args[2]) {
-                // console.log(idx, conteudo)
                 data['conteudo'][args[0]][args[1]][idx]['conteudo'] = args[3]
             }
         })

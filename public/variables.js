@@ -3,6 +3,7 @@ let salas
 let calendar
 let textarea
 let salaAtiva
+let salasDoDia
 let selectedDate
 let lastClickedDate
 let inputManContent = ''
